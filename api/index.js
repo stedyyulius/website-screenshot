@@ -5,6 +5,7 @@ const express = require('express');
 const screenshotmachine = require('screenshotmachine');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 const app = express();
 
@@ -43,7 +44,10 @@ app.get('/api', async (req, res) => {
         //put link to your html code
         console.log('<img src="' + apiUrl + '">');
 
-        const output = 'output.png';
+        const output = path.join(os.tmpdir(), 'output.png');
+
+        console.log(output)
+
         screenshotmachine.readScreenshot(apiUrl).pipe(fs.createWriteStream(output).on('close', function() {
         console.log('Screenshot saved as ' + output);
         
