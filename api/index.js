@@ -50,7 +50,7 @@ app.get('/api', async (req, res) => {
         // const screenshot = path.join(__dirname, '../output.png');
 
         res.send('a');
-    }));
+    // }));
 
     } catch(error) {
         res.status(400).send(error.stderr)
