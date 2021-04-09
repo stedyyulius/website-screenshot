@@ -21,6 +21,11 @@ app.get('/api', (req, res) => {
 
 app.get('/api/screenshot', async (req, res) => {
     try {
+
+        if (!req.query.url) {
+            res.send(`please provide a website url as query to screenshot: https://website-screenshot-sigma.vercel.app/api/screenshot?url={website_url}`)
+        }
+
         res.setHeader('Content-Type', 'text/html')
         res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
       
