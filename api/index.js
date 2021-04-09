@@ -23,34 +23,34 @@ app.get('/api', async (req, res) => {
         res.setHeader('Content-Type', 'text/html')
         res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
       
-        // const customerKey = process.env.API_KEY;
+        const customerKey = process.env.API_KEY;
 
-        // secretPhrase = ''; //leave secret phrase empty, if not needed
-        // options = {
-        // //mandatory parameter
-        // url : 'https://battleship-tau.vercel.app/',
-        // // all next parameters are optional, see our website screenshot API guide for more details
-        // dimension : '1366xfull', // or "1366xfull" for full length screenshot
-        // device : 'desktop',
-        // format: 'png',
-        // cacheLimit: '0',
-        // delay: '200',
-        // zoom: '100'
-        // }
+        secretPhrase = ''; //leave secret phrase empty, if not needed
+        options = {
+        //mandatory parameter
+        url : 'https://battleship-tau.vercel.app/',
+        // all next parameters are optional, see our website screenshot API guide for more details
+        dimension : '1366xfull', // or "1366xfull" for full length screenshot
+        device : 'desktop',
+        format: 'png',
+        cacheLimit: '0',
+        delay: '200',
+        zoom: '100'
+        }
 
-        // const apiUrl = screenshotmachine.generateScreenshotApiUrl(customerKey, secretPhrase, options);
+        const apiUrl = screenshotmachine.generateScreenshotApiUrl(customerKey, secretPhrase, options);
 
-        // //put link to your html code
-        // console.log('<img src="' + apiUrl + '">');
+        //put link to your html code
+        console.log('<img src="' + apiUrl + '">');
 
-        // const output = 'output.png';
-        // screenshotmachine.readScreenshot(apiUrl).pipe(fs.createWriteStream(output).on('close', function() {
-        // console.log('Screenshot saved as ' + output);
+        const output = 'output.png';
+        screenshotmachine.readScreenshot(apiUrl).pipe(fs.createWriteStream(output).on('close', function() {
+        console.log('Screenshot saved as ' + output);
         
-        // const screenshot = path.join(__dirname, '../output.png');
+        const screenshot = path.join(__dirname, '../output.png');
 
         res.send('a');
-    // }));
+    }));
 
     } catch(error) {
         res.status(400).send(error.stderr)
