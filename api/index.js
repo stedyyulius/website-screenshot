@@ -4,6 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const screenshotmachine = require('screenshotmachine');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.get('/', (req, res) => {
     res.send('connected');
 })
 
-module.exports= (req, res) => {
+app.get('/api', async (req, res) => {
     try {
         res.setHeader('Content-Type', 'text/html')
         res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
@@ -46,7 +47,7 @@ module.exports= (req, res) => {
         screenshotmachine.readScreenshot(apiUrl).pipe(fs.createWriteStream(output).on('close', function() {
         console.log('Screenshot saved as ' + output);
         
-        const screenshot = __dirname + '/output.png';
+        const screenshot = path.join(__dirname, '../output.png');
 
         res.sendFile(screenshot);
     }));
@@ -55,4 +56,6 @@ module.exports= (req, res) => {
         res.status(400).send(error.stderr)
     }
 
-}
+})
+
+module.exports = app;
