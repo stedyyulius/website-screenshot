@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     res.send('connected');
 })
 
-app.get('/api', async (req, res) => {
+module.exports= (req, res) => {
     try {
         res.setHeader('Content-Type', 'text/html')
         res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
@@ -55,6 +55,4 @@ app.get('/api', async (req, res) => {
         res.status(400).send(error.stderr)
     }
 
-})
-
-module.exports = app;
+}
