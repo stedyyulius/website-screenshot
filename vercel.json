@@ -1,0 +1,9 @@
+{  
+    "build": {
+        "env": {
+            "API_KEY": "@sm-api-key"
+        }
+    },
+    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+}
+  
