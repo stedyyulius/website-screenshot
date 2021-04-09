@@ -29,7 +29,7 @@ app.get('/api/screenshot', async (req, res) => {
         secretPhrase = ''; //leave secret phrase empty, if not needed
         options = {
         //mandatory parameter
-        url : req.body,
+        url : req.query.url,
         // all next parameters are optional, see our website screenshot API guide for more details
         dimension : '1366xfull', // or "1366xfull" for full length screenshot
         device : 'desktop',
