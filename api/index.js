@@ -13,6 +13,10 @@ app.listen(port, () => {
     console.log(`server listening on http://localhost:${port}`)
 })
 
+app.get('/', (req, res) => {
+    res.send('connected');
+})
+
 app.get('/api', async (req, res) => {
     try {
         res.setHeader('Content-Type', 'text/html')
