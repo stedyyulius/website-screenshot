@@ -5,6 +5,12 @@
             "use": "@vercel/node"
         }
     ],
+    "routes": [
+		{
+			"src": "/api/(.*)",
+			"dest": "/"
+		}
+	],
     "build": {
         "env": {
             "API_KEY": "@sm-api-key"
