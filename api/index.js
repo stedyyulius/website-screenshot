@@ -49,7 +49,7 @@ app.get('/api', async (req, res) => {
         
         const screenshot = path.join(__dirname, '../output.png');
 
-        res.sendFile(screenshot);
+        res.send('a');
     }));
 
     } catch(error) {
