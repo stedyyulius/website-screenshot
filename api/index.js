@@ -51,9 +51,9 @@ app.get('/api', async (req, res) => {
         screenshotmachine.readScreenshot(apiUrl).pipe(fs.createWriteStream(output).on('close', function() {
         console.log('Screenshot saved as ' + output);
         
-        const screenshot = path.join(__dirname, '../output.png');
+        const screenshot = path.join(os.tmpdir(), 'output.png');
 
-        res.send('a');
+        res.sendFile(screenshot);
     }));
 
     } catch(error) {
