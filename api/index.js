@@ -58,7 +58,7 @@ app.get('/api/screenshot', async (req, res) => {
         
         const base64 = fs.readFileSync(path.join(os.tmpdir(), 'output.png'), 'base64')
 
-        res.send(process.env.API_KEY);
+        res.send(base64);
     }));
 
     } catch(error) {
