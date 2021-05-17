@@ -34,12 +34,11 @@ app.get('/api/screenshot', async (req, res) => {
 
         const customerKey = process.env.API_KEY;
 
-        secretPhrase = ''; //leave secret phrase empty, if not needed
+        secretPhrase = '';
         options = {
             //mandatory parameter
             url: req.query.url,
-            // all next parameters are optional, see our website screenshot API guide for more details
-            dimension: '1366xfull', // or "1366xfull" for full length screenshot
+            dimension: '1366xfull',
             device: 'desktop',
             format: 'png',
             cacheLimit: '0',
