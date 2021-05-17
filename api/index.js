@@ -48,12 +48,7 @@ app.get('/api/screenshot', async (req, res) => {
 
         const apiUrl = screenshotmachine.generateScreenshotApiUrl(customerKey, secretPhrase, options);
 
-        //put link to your html code
-        console.log('<img src="' + apiUrl + '">');
-
         const output = path.join(os.tmpdir(), 'output.png');
-
-        console.log(output)
 
         screenshotmachine.readScreenshot(apiUrl).pipe(fs.createWriteStream(output).on('close', function () {
             console.log('Screenshot saved as ' + output);
